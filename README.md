@@ -6,10 +6,6 @@
      * [Создание тестового приложения](#создание-тестового-приложения)
      * [Подготовка cистемы мониторинга и деплой приложения](#подготовка-cистемы-мониторинга-и-деплой-приложения)
      * [Установка и настройка CI/CD](#установка-и-настройка-cicd)
-  * [Что необходимо для сдачи задания?](#что-необходимо-для-сдачи-задания)
-  * [Как правильно задавать вопросы дипломному руководителю?](#как-правильно-задавать-вопросы-дипломному-руководителю)
-
-**Перед началом работы над дипломным заданием изучите [Инструкция по экономии облачных ресурсов](https://github.com/netology-code/devops-materials/blob/master/cloudwork.MD).**
 
 ---
 ## Цели:
@@ -23,8 +19,8 @@
 
 ---
 ## Этапы выполнения:
-### Создание облачной инфраструктуры
- 
+<details>
+<summary>### Создание облачной инфраструктуры</summary>  
 Подготовим Backend при помощи **Terraform**  
 Отдельным блоком создаем S3 хранилище для хранения **Terraform** state и создаем dns зону и сертификат LE манифестом при помощи манифестов    
 [манифест dns](./bucket/dns.tf)   
@@ -45,7 +41,7 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
 
 ![vpc](./images/yc-vpc.png)  
 
-
+</details>
 ---
 ### Создание **Kubernetes** кластера 
 
@@ -258,14 +254,14 @@ git commit
 
 1. Подготовка backend. Конфигурационные файлы **Terraform**. Инфраструктура DNS, сертификат  
 [backend](./bucket/)  
-1. Основной блок. Конфигурационные файлы **Terraform**.  Инфраструктура, **Kubernetes** кластер, ALB балансер, развертка приложения. 
+1. Основной блок. Конфигурационные файлы **Terraform**.  Инфраструктура, **Kubernetes** кластер, ALB балансер, развертка приложения.   
 [terraform](./terraform/)  
 3. вывод `terraform apply`  
-[лог terraform apply]()  
-5. Репозиторий с `Dockerfile` тестового приложения и ссылка на собранный docker image.
+[лог terraform apply](./terraform/apply_output.txt)  
+4. Репозиторий с `Dockerfile` тестового приложения и ссылка на собранный docker image.  
 [Dockerfile](https://github.com/barmaq/barmaq-dapp/blob/11d15827731fcdbef74963609c1e0d77a6c72a77/Dockerfile)  
 [docker image](https://hub.docker.com/repository/docker/barmaq/barmaq-dapp/general) 
-6. Ссылка на тестовое приложение и веб интерфейс **Grafana** с данными доступа.  
+5. Ссылка на тестовое приложение и веб интерфейс **Grafana** с данными доступа.  
 [app.barmaq.ru](https://app.barmaq.ru)  
 [веб интерфейс **Graphana**](http://51.250.93.208:30000)  
 
@@ -285,9 +281,9 @@ git commit
 </details>
 
 
-7. `Outputs` в   **Terraform**   
-[Outputs](./terraform/apply_output.txt)  
-8. Ресурсы в  **Yandex Cloud**  
+6. `Outputs` в   **Terraform**   
+![Outputs](./images/terraform-apply.png)  
+7. Ресурсы в  **Yandex Cloud**  
 общие  
 ![общие](./images/yc-all.png) 
 vpc   
