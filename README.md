@@ -20,7 +20,7 @@
 ---
 ## Этапы выполнения:
 <details>
-<summary>### Создание облачной инфраструктуры</summary>  
+<summary>Создание облачной инфраструктуры</summary>  
 Подготовим Backend при помощи **Terraform**  
 Отдельным блоком создаем S3 хранилище для хранения **Terraform** state и создаем dns зону и сертификат LE манифестом при помощи манифестов    
 [манифест dns](./bucket/dns.tf)   
@@ -42,10 +42,10 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
 ![vpc](./images/yc-vpc.png)  
 
 </details>
----
-### Создание **Kubernetes** кластера 
+---  
 
-Создаем **Kubernetes** кластер 
+<details>
+<summary>Создание **Kubernetes** кластера</summary>  
 Рекомендованный вариант - самостоятельная установка кластера , а не использование облачного ресурса.  
 При помощи **Terraform** и **Ansible** создадим кластер  
 
@@ -124,9 +124,12 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
    пример автоматически созданного инвентаря  
    ![k8s](./images/inventory.png) 
 
-  
----
-### Создание тестового приложения  
+</details>  
+
+---  
+<details>
+<summary>Создание тестового приложения  </summary>  
+
 
 1. Создадим простое приложение. Небольшой скрипт с миниигрой и nginx сервером  
 
@@ -138,10 +141,11 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
 
    ![образ Docker](./images/04.png)  
 
+</details>
 
----
-### Подготовка cистемы мониторинга и деплой приложения  
-
+---  
+<details>
+<summary>Подготовка cистемы мониторинга и деплой приложения  </summary>  
 
 
 В созданном **Kubernetes** кластере разворачиваем мониторинг и наше приложение  
@@ -179,7 +183,7 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
 
 
 
-## результат 
+ **результат**  
 
 ----------  
 
@@ -213,8 +217,13 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
 дашборд неймспейсы  
 ![дашборд неймспейсы](./images/mon-n.png)  
 
----
-### Установка и настройка CI/CD
+</details>
+
+---  
+
+<details>
+<summary>Установка и настройка CI/CD</summary>  
+
 
 Ннастройка **ci/cd** системы для автоматической сборки **docker image** и деплоя приложения при изменении кода.  
 
@@ -245,8 +254,12 @@ git commit
 приложение версии v 0.0.14   
 ![v 0.0.14](./images/app2.png)  
 
+</details>
+
 ---
-## Итоги  
+
+<details>
+<summary>Итоги</summary>  
 
 Все ресурсы создаются автоматически после запуска **Terraform**. Вручную только добавляем `kubeconfig` в переменные репозитория **GitGub**  
 Чувствительные данные вынесены в файл secret.auto.tfvars и добавлены в .gitignore  
@@ -256,7 +269,7 @@ git commit
 [backend](./bucket/)  
 1. Основной блок. Конфигурационные файлы **Terraform**.  Инфраструктура, **Kubernetes** кластер, ALB балансер, развертка приложения.   
 [terraform](./terraform/)  
-3. вывод `terraform apply`  
+3. вывод `terraform apply` Файл большой изза большого количества логов `Kubespray`   
 [лог terraform apply](./terraform/apply_output.txt)  
 4. Репозиторий с `Dockerfile` тестового приложения и ссылка на собранный docker image.  
 [Dockerfile](https://github.com/barmaq/barmaq-dapp/blob/11d15827731fcdbef74963609c1e0d77a6c72a77/Dockerfile)  
@@ -296,6 +309,6 @@ dns и сертификат
 ![dns](./images/dns-dns.png) 
 ![сертификат](./images/dns-cert.png) 
 
-
+</details>
 
 
