@@ -42,7 +42,8 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
 ![vpc](./images/yc-vpc.png)  
 
 </details>
----  
+
+---   
 
 <details>
 <summary>Создание **Kubernetes** кластера</summary>  
