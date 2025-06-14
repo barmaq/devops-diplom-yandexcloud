@@ -21,6 +21,7 @@
 ## Этапы выполнения:
 <details>
 <summary>Создание облачной инфраструктуры</summary>  
+
 Подготовим Backend при помощи **Terraform**  
 Отдельным блоком создаем S3 хранилище для хранения **Terraform** state и создаем dns зону и сертификат LE манифестом при помощи манифестов    
 [манифест dns](./bucket/dns.tf)   
@@ -47,6 +48,7 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
 
 <details>
 <summary>Создание **Kubernetes** кластера</summary>  
+
 Рекомендованный вариант - самостоятельная установка кластера , а не использование облачного ресурса.  
 При помощи **Terraform** и **Ansible** создадим кластер  
 
