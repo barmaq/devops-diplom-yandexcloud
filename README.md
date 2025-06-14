@@ -27,9 +27,10 @@
  
 Подготовим Backend при помощи **Terraform**  
 Отдельным блоком создаем S3 хранилище для хранения **Terraform** state и создаем dns зону и сертификат LE манифестом при помощи манифестов    
-[dns](./bucket/dns.tf) 
-[хранилище для state](./bucket/s3.tf)  
-Получаем  acces key и secret key - через output и инициализируем основной проект  
+[манифест dns](./bucket/dns.tf)   
+
+[манифест хранилище для state](./bucket/s3.tf)  
+Получаем  `acces key` и `secret key` - через `output` и инициализируем основной проект  
 ```
 terraform output -raw terraform_backend_secret_key  
 terraform init --backend-config="access_key=******" --backend-config="secret_key==******""  
@@ -40,7 +41,9 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
 Создание инраструктуры  
 
 Создаем vpc с подсетями в разных зонах доступности  
-[Vpc](./terraform/main.tf)  
+[манифест vpc](./terraform/main.tf)  
+
+![vpc](./images/yc-vpc.png)  
 
 
 ---
@@ -60,9 +63,13 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
    По умолчанию стоит 1 , при увеличении ставить не меньше чем 3  
 
 
+
+
    Сервера для `Worker nodes`  
    [worker nodes](./terraform/k8s-nodes.tf)   
    Количество рабочих нод определяется переменной `kube-k8s_nodes_count` в **variables.tf**  
+
+   ![vm](./images/yc-vm.png) 
 
 
 2. На основе созданных ВМ формируем из шаблона файл `inventory` для **Ansible**  
@@ -87,6 +94,8 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
 
    на выходе поулчаем файл инвентаря `inventory.yml`  
 
+
+
 3. Устанавливаем **Ansible** при помощи **Terraform**  
 
    Запускать **Ansible** будем с первой созданной машине в группе `Control Plane` (в ресурсе с индексом [0])  
@@ -96,7 +105,8 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
    манифест **Terraform**  
    [k8s-cluster.tf](./terraform/k8s-cluster.tf) 
 
-3. С помощью **Ansible** установим  **Kubernetes**  
+
+4. С помощью **Ansible** установим  **Kubernetes**  
 
    Используя `inventory.yml` установим **Kubernetes** кластер с помощью **Kubespray**  
    Установка довольно долгая, занимает 10-20 минут  
@@ -107,7 +117,8 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
    terraform output -raw kubeconfig  
    ```
 
-4. Кластер установлен !  
+
+5. Кластер установлен !  
 
    список подов  и  список нод  
    ![k8s](./images/k8s.png)  
