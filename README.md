@@ -157,7 +157,7 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
 2. Создадим тем же манифестом **Terraform** сервис для доступа к **Graphana** и выведем информацию в `outputs`  
 
    доступ к веб интерфейсу **Graphana**  
-   [веб интерфейс **Graphana**](http://51.250.93.208:30000")  
+   [веб интерфейс **Graphana**](http://51.250.93.208:30000)  
 
 3. Устанавливаем приложение  
    Развернем приложение на кластере **Kubernetes** с помощью **Terraform**   
@@ -267,7 +267,7 @@ git commit
 [docker image](https://hub.docker.com/repository/docker/barmaq/barmaq-dapp/general) 
 6. Ссылка на тестовое приложение и веб интерфейс **Grafana** с данными доступа.  
 [app.barmaq.ru](https://app.barmaq.ru)  
-[веб интерфейс **Graphana**](http://51.250.93.208:30000")  
+[веб интерфейс **Graphana**](http://51.250.93.208:30000)  
 
 <details>
 <summary>Учетные данные для входа </summary>  
