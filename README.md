@@ -24,9 +24,9 @@
 
 Подготовим Backend при помощи **Terraform**  
 Отдельным блоком создаем S3 хранилище для хранения **Terraform** state и создаем dns зону и сертификат LE манифестом при помощи манифестов    
-[манифест dns](./bucket/dns.tf)   
+[манифест dns.tf](./bucket/dns.tf)   
 
-[манифест хранилище для state](./bucket/s3.tf)  
+[манифест хранилище для state s3.tf](./bucket/s3.tf)  
 Получаем  `acces key` и `secret key` - через `output` и инициализируем основной проект  
 ```
 terraform output -raw terraform_backend_secret_key  
@@ -38,7 +38,7 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
 Создание инраструктуры  
 
 Создаем vpc с подсетями в разных зонах доступности  
-[манифест vpc](./terraform/main.tf)  
+[манифест vpc main.tf](./terraform/main.tf)  
 
 ![vpc](./images/yc-vpc.png)  
 
@@ -154,7 +154,7 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
 В созданном **Kubernetes** кластере разворачиваем мониторинг и наше приложение  
 
 1. При помощи **Terraform** развернем **Helm**  чарт **kube-prometheus** для установки мониторинга  
-   [мониторинг](./terraform/graphana.tf)  
+   [мониторинг graphana.tf](./terraform/graphana.tf)  
    пароль от Grafana указываем свой при помощи перменной `grafana_admin_password`  
 
 2. Создадим тем же манифестом **Terraform** сервис для доступа к **Graphana** и выведем информацию в `outputs`  
