@@ -69,6 +69,8 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
    [worker nodes](./terraform/k8s-nodes.tf)   
    Количество рабочих нод определяется переменной `kube-k8s_nodes_count` в **variables.tf**  
 
+   Виртуальные машины в каждой группе создаются в трех зонах по очереди. т е первая в зону А , вторая в зону B , третья в хону D  
+
    ![vm](./images/yc-vm.png) 
 
 
@@ -89,8 +91,8 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
       ```
    </details>
 
-   Шаблон inventory  
-   [inventory](./terraform/templates/inventory.tpl)  
+     
+   [Шаблон inventory](./terraform/templates/inventory.tpl)  
 
    на выходе поулчаем файл инвентаря `inventory.yml`  
 
@@ -135,9 +137,9 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
    [Репозиторий приложения ](https://github.com/barmaq/barmaq-dapp)  
    [Dokerfile](https://github.com/barmaq/barmaq-dapp/blob/11d15827731fcdbef74963609c1e0d77a6c72a77/Dockerfile)  
    
-2. Docker образ хранится в DockerHub
+2. Docker образ хранится в DockerHub  
    [образ Docker](https://hub.docker.com/repository/docker/barmaq/barmaq-dapp/general)  
-   DockerHub  
+
    ![образ Docker](./images/04.png)  
 
 
@@ -148,13 +150,13 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
 
 В созданном **Kubernetes** кластере разворачиваем мониторинг и наше приложение  
 
-1. При помощи **Terraform** развернем **Helm**  чарт **kube-prometheus** для установки мониторинга
+1. При помощи **Terraform** развернем **Helm**  чарт **kube-prometheus** для установки мониторинга  
    [мониторинг](./terraform/graphana.tf)  
    пароль от Grafana указываем свой при помощи перменной `grafana_admin_password`  
 
 2. Создадим тем же манифестом **Terraform** сервис для доступа к **Graphana** и выведем информацию в `outputs`  
 
-   доступ к веб интерфейсу **Graphana**
+   доступ к веб интерфейсу **Graphana**  
    [веб интерфейс **Graphana**](http://51.250.93.208:30000")  
 
 3. Устанавливаем приложение  
@@ -164,13 +166,14 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
    [deployment](./terraform/k8s-templates/deployment.yaml.tpl)  
    [service](./terraform/k8s-templates/service.yaml.tpl)  
 
-   [ устанавливаем приложение ](./terraform/app.tf)  
+   устанавливаем приложение
+   [ манифест app.tf ](./terraform/app.tf)  
 
 4. Создадим DNS А запись и Load Balancer 
 
 
-   манифест терраформ  
-   [load-balancer](./terraform/load-balancer.tf)  
+
+   [манифест load-balancer.tf](./terraform/load-balancer.tf)  
 
 
 5. Результат
@@ -178,7 +181,9 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
 доступ к приложению **barmaq-dapp**  
 [app.barmaq.ru](https://app.barmaq.ru)  
 
-результат 
+
+
+## результат 
 
 ----------  
 
@@ -186,10 +191,14 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
 
 [ссылка на Graphana]()  
 <details>
-<summary>Учетные данные</summary>  
-   ```  
+<summary>Учетные данные для входа </summary>  
+Логин
+
+   ```   
    admin
-   ```
+   ``` 
+
+Пароль
 
    ```  
    ipt6CXqd0r
@@ -259,6 +268,23 @@ git commit
 6. Ссылка на тестовое приложение и веб интерфейс **Grafana** с данными доступа.  
 [app.barmaq.ru](https://app.barmaq.ru)  
 [веб интерфейс **Graphana**](http://51.250.93.208:30000")  
+
+<details>
+<summary>Учетные данные для входа </summary>  
+Логин
+
+   ```   
+   admin
+   ``` 
+
+Пароль
+
+   ```  
+   ipt6CXqd0r
+   ```     
+</details>
+
+
 7. `Outputs` в   **Terraform**   
 [Outputs](./terraform/apply_output.txt)  
 8. Ресурсы в  **Yandex Cloud**  
