@@ -235,12 +235,12 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
 ![env](./images/cicd-01.png)  
 
 создадим **workflow**  
-[workflow](https://github.com/barmaq/barmaq-dapp/blob/11d15827731fcdbef74963609c1e0d77a6c72a77/.github/workflows/ci_cd.yaml)
+[workflow](https://github.com/barmaq/barmaq-dapp/blob/b577f3d28db46af2f4580c52cdc3d239915d57c7/.github/workflows/ci_cd.yaml)   
 
 в **Pipline** запланированы этапы реагирующие на **push** в ветку **main**  
  1.  проверка линтерами и тестирование  
  2.  сборка образа и сохранение в **DockerHub**    
- 3.  деплой приложения в **Kubernetes**  
+ 3.  деплой приложения в **Kubernetes** на основе шаблонов   
 
 приложение версии v 0.0.13     
 ![v 0.0.13](./images/app.png)  
@@ -254,7 +254,7 @@ git commit
 лог rollout обновления  
 ![rollout](./images/cicd-03.png) 
 
-приложение версии v 0.0.14   
+приложение версии v 0.0.14 - версия обновилась!   
 ![v 0.0.14](./images/app2.png)  
 
 </details>
@@ -274,10 +274,10 @@ git commit
 [terraform](./terraform/)  
 3. вывод `terraform apply` Файл большой изза большого количества логов `Kubespray`   
 [лог terraform apply](./terraform/apply_output.txt)  
-4. Репозиторий с `Dockerfile` тестового приложения и ссылка на собранный docker image.
-[репозиторий](https://github.com/barmaq/barmaq-dapp)
-[Dockerfile](https://github.com/barmaq/barmaq-dapp/blob/11d15827731fcdbef74963609c1e0d77a6c72a77/Dockerfile)  
-[docker image](https://hub.docker.com/repository/docker/barmaq/barmaq-dapp/general) 
+4. Репозиторий с `Dockerfile` тестового приложения и ссылка на собранный docker image.   
+[репозиторий](https://github.com/barmaq/barmaq-dapp)   
+[Dockerfile](https://github.com/barmaq/barmaq-dapp/blob/b577f3d28db46af2f4580c52cdc3d239915d57c7/Dockerfile)   
+[docker image](https://hub.docker.com/repository/docker/barmaq/barmaq-dapp/general)   
 6. Ссылка на тестовое приложение и веб интерфейс **Grafana** с данными доступа.  
 [app.barmaq.ru](https://app.barmaq.ru)  
 [веб интерфейс **Graphana**](http://51.250.93.208:30000)  
