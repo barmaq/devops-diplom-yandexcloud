@@ -274,10 +274,11 @@ git commit
 [terraform](./terraform/)  
 3. вывод `terraform apply` Файл большой изза большого количества логов `Kubespray`   
 [лог terraform apply](./terraform/apply_output.txt)  
-4. Репозиторий с `Dockerfile` тестового приложения и ссылка на собранный docker image.  
+4. Репозиторий с `Dockerfile` тестового приложения и ссылка на собранный docker image.
+[репозиторий](https://github.com/barmaq/barmaq-dapp)
 [Dockerfile](https://github.com/barmaq/barmaq-dapp/blob/11d15827731fcdbef74963609c1e0d77a6c72a77/Dockerfile)  
 [docker image](https://hub.docker.com/repository/docker/barmaq/barmaq-dapp/general) 
-5. Ссылка на тестовое приложение и веб интерфейс **Grafana** с данными доступа.  
+6. Ссылка на тестовое приложение и веб интерфейс **Grafana** с данными доступа.  
 [app.barmaq.ru](https://app.barmaq.ru)  
 [веб интерфейс **Graphana**](http://51.250.93.208:30000)  
 
