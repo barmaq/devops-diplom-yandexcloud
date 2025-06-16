@@ -179,14 +179,11 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
    [манифест load-balancer.tf](./terraform/load-balancer.tf)  
 
 
-5. Результат
+ **результат** 
 
 доступ к приложению **barmaq-dapp**  
 [app.barmaq.ru](https://app.barmaq.ru)  
 
-
-
- **результат**  
 
 ----------  
 
