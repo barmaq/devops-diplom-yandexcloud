@@ -56,7 +56,7 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
 
    Создаем сервера для будущего кластера с помощью манифестов  
    Сервера для `Сontrol plane`  
-   [control plane](./terraform/k8s-cp.tf) 
+   [control plane](./terraform/k8s-cp.tf)   
    Количество мастер нод определяется переменной `kube-k8s_cp_count` в **variables.tf**  
    
    По умолчанию стоит 1 , при увеличении ставить не меньше чем 3  
