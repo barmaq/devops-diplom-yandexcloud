@@ -159,10 +159,7 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
 
 2. Создадим тем же манифестом **Terraform** сервис для доступа к **Graphana** и выведем информацию в `outputs`  
 
-   доступ к веб интерфейсу **Graphana**  
-   [веб интерфейс **Graphana**](http://51.250.64.79:30000/)   
-
-4. Устанавливаем приложение  
+3. Устанавливаем приложение  
    Развернем приложение на кластере **Kubernetes** с помощью **Terraform**   
 
    подготовим шаблоны манифестов **Kubernetes**  
@@ -172,7 +169,7 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
    устанавливаем приложение
    [ манифест app.tf ](./terraform/app.tf)  
 
-5. Создадим DNS А запись и Load Balancer 
+4. Создадим DNS А запись и Load Balancer 
 
 
 
