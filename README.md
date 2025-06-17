@@ -160,22 +160,7 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
 2. Создадим тем же манифестом **Terraform** сервис для доступа к **Graphana** и выведем информацию в `outputs`  
 
    доступ к веб интерфейсу **Graphana**  
-   [веб интерфейс **Graphana**](http://51.250.64.79:30000/)
-
-   <details>
-   <summary>Учетные данные для входа </summary>  
-   Логин
-
-   ```   
-   admin
-   ``` 
-
-   Пароль
-
-   ```  
-   ipt6CXqd0r
-   ```     
-</details>
+   [веб интерфейс **Graphana**](http://51.250.64.79:30000/)   
 
 4. Устанавливаем приложение  
    Развернем приложение на кластере **Kubernetes** с помощью **Terraform**   
