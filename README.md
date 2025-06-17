@@ -160,9 +160,24 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
 2. Создадим тем же манифестом **Terraform** сервис для доступа к **Graphana** и выведем информацию в `outputs`  
 
    доступ к веб интерфейсу **Graphana**  
-   [веб интерфейс **Graphana**](http://46.21.244.201:30000/)   
+   [веб интерфейс **Graphana**](http://51.250.64.79:30000/)
 
-3. Устанавливаем приложение  
+   <details>
+   <summary>Учетные данные для входа </summary>  
+   Логин
+
+   ```   
+   admin
+   ``` 
+
+   Пароль
+
+   ```  
+   ipt6CXqd0r
+   ```     
+</details>
+
+4. Устанавливаем приложение  
    Развернем приложение на кластере **Kubernetes** с помощью **Terraform**   
 
    подготовим шаблоны манифестов **Kubernetes**  
@@ -172,7 +187,7 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
    устанавливаем приложение
    [ манифест app.tf ](./terraform/app.tf)  
 
-4. Создадим DNS А запись и Load Balancer 
+5. Создадим DNS А запись и Load Balancer 
 
 
 
@@ -191,7 +206,7 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
 
 Доступ к **Graphana**  
 
-[ссылка на Graphana]()  
+[веб интерфейс **Graphana**](http://51.250.64.79:30000/)      
 <details>
 <summary>Учетные данные для входа </summary>  
 Логин
@@ -279,7 +294,7 @@ git commit
 [docker image](https://hub.docker.com/repository/docker/barmaq/barmaq-dapp/general)   
 6. Ссылка на тестовое приложение и веб интерфейс **Grafana** с данными доступа.  
 [app.barmaq.ru](https://app.barmaq.ru)  
-[веб интерфейс **Graphana**](http://46.21.244.201:30000/)  
+[веб интерфейс **Graphana**](http://51.250.64.79:30000/)      
 
 <details>
 <summary>Учетные данные для входа </summary>  
