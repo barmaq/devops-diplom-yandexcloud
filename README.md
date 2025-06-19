@@ -97,7 +97,7 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
 <details>
 <summary><strong>⚙️ Самостоятельная установка кластера</strong></summary>
 
-> **Рекомендация:** Используем самостоятельную установку кластера вместо облачного ресурса для полного контроля.
+> **Рекомендация:** Рекомендовано использовать самостоятельную установку кластера вместо облачного ресурса.
 
 #### Этапы создания кластера
 
@@ -116,7 +116,7 @@ terraform init --backend-config="access_key=******" --backend-config="secret_key
 
 **Распределение по зонам:**
 - Виртуальные машины создаются в трех зонах по очереди
-- Первая → зона A, вторая → зона B, третья → зона D
+- Первая → зона A, вторая → зона B, третья → зона D, четвертая → зона A и т д  
 
 ![Virtual Machines](./images/yc-vm.png)
 
@@ -161,6 +161,7 @@ resource "local_file" "inventory" {
 ```bash
 terraform output -raw kubeconfig
 ```
+Понадобится доступ к стейту!  
 
 **5. Результат установки**
 
@@ -186,7 +187,7 @@ terraform output -raw kubeconfig
 
 Создано простое веб-приложение с мини-игрой и nginx сервером.
 
-**Репозиторий:** [barmaq-dapp](https://github.com/barmaq/barmaq-dapp)
+**Репозиторий:** [barmaq-dapp](https://github.com/barmaq/barmaq-dapp)  
 **Dockerfile:** [Dockerfile](https://github.com/barmaq/barmaq-dapp/blob/11d15827731fcdbef74963609c1e0d77a6c72a77/Dockerfile)
 
 #### Docker образ
@@ -232,6 +233,7 @@ terraform output -raw kubeconfig
 
 - DNS A запись
 - Load Balancer для приложения
+- Network Balancer для мониторинга  
 
 **Манифест:** [load-balancer.tf](https://github.com/barmaq/terraform-dapp/blob/main/load-balancer.tf)
 
@@ -241,7 +243,7 @@ terraform output -raw kubeconfig
 - **URL:** [app.barmaq.ru](https://app.barmaq.ru)
 
 **Доступ к Grafana:**
-- **URL:** [веб интерфейс Grafana](http://51.250.64.79:30000/)
+- **URL:** [веб интерфейс Grafana](http://grafana.barmaq.ru)  
 
 <details>
 <summary>Учетные данные для входа в Grafana</summary>
@@ -316,7 +318,7 @@ terraform output -raw kubeconfig
 
 ### Автоматизация
 
-Все ресурсы создаются автоматически после запуска Terraform. Ручное вмешательство минимально - только добавление `kubeconfig` в переменные GitHub репозитория.
+Все ресурсы создаются автоматически после запуска `Terraform apply` или пуша кода **Terraform** в `main` ветку репозитория . Ручное вмешательство минимально - только добавление `kubeconfig` в переменные GitHub репозитория приложения (можно реализовать через Github API, но решил что это как раз тот случай когда НУЖЕН ручной контроль) . 
 
 **Безопасность:** Чувствительные данные вынесены в файл `secret.auto.tfvars` и добавлены в `.gitignore`.
 
@@ -324,11 +326,11 @@ terraform output -raw kubeconfig
 
 | № | Компонент | Описание | Ссылка |
 |---|-----------|----------|--------|
-| **1** | Backend | Конфигурационные файлы Terraform. Инфраструктура DNS, сертификат | [backend](https://github.com/barmaq/terraform-dapp/tree/main/bucket) |
+| **1** | Backend | Конфигурационные файлы Terraform. Инфраструктура DNS, сертификат | [backend](./bucket/) |
 | **2** | Основная инфраструктура | Terraform манифесты. Инфраструктура, Kubernetes кластер, ALB балансер, развертка приложения | [terraform-dapp](https://github.com/barmaq/terraform-dapp) |
 | **3** | Логи выполнения | Вывод terraform apply (большой файл из-за логов Kubespray) | [лог terraform apply](./terraform_cicd_logs/9_Terraform%20Apply.txt) |
 | **4** | Приложение | Репозиторий с Dockerfile и Docker образ | [репозиторий](https://github.com/barmaq/barmaq-dapp) / [Docker image](https://hub.docker.com/repository/docker/barmaq/barmaq-dapp/general) |
-| **5** | Доступ к сервисам | Тестовое приложение и веб интерфейс Grafana | [app.barmaq.ru](https://app.barmaq.ru) |
+| **5** | Доступ к сервисам | Тестовое приложение и веб интерфейс Grafana | [app.barmaq.ru](https://app.barmaq.ru) / [grafana.barmaq.ru](http://grafana.barmaq.ru/) |
 
 ### Учетные данные Grafana
 
@@ -354,7 +356,7 @@ terraform output -raw kubeconfig
 - [VPC](./images/yc-vpc.png)
 - [Виртуальные машины](./images/yc-vm.png)
 - [Load Balancer](./images/yc-alb.png)
-- [DNS и сертификат](./images/dns-dns.png) / [Сертификат](./images/dns-cert.png)
+- [DNS](./images/dns-dns.png) и [Сертификат](./images/dns-cert.png)
 
 ---
 
