@@ -1,0 +1,596 @@
+﻿2025-06-19T09:45:52.2097046Z ##[group]Run terraform plan
+2025-06-19T09:45:52.2097364Z [36;1mterraform plan[0m
+2025-06-19T09:45:52.2148347Z shell: /usr/bin/bash -e {0}
+2025-06-19T09:45:52.2148620Z env:
+2025-06-19T09:45:52.2148828Z   TF_VERSION: 1.8.4
+2025-06-19T09:45:52.2149049Z   TF_ROOT: .
+2025-06-19T09:45:52.2149408Z   TERRAFORM_CLI_PATH: /home/runner/work/_temp/16ce911a-5882-4486-a106-c4b79713f2d9
+2025-06-19T09:45:52.2150084Z   SSH_PUBLIC_KEY: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK4DFQBsJA/Djtas+6WVht6qyVPLgia0JVBjEmNrnmdL barmaq for yacloud
+2025-06-19T09:45:52.2150865Z   TF_VAR_token: ***
+2025-06-19T09:45:52.2151127Z   TF_VAR_cloud_id: ***
+2025-06-19T09:45:52.2151393Z   TF_VAR_folder_id: ***
+2025-06-19T09:45:52.2151957Z   TF_VAR_grafana_admin_password: ***
+2025-06-19T09:45:52.2152268Z   TF_VAR_ssh_private_key_path: /tmp/ssh_key
+2025-06-19T09:45:52.2152852Z   TF_VAR_ssh_public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK4DFQBsJA/Djtas+6WVht6qyVPLgia0JVBjEmNrnmdL barmaq for yacloud
+2025-06-19T09:45:52.2153416Z ##[endgroup]
+2025-06-19T09:45:53.7252610Z [0m[1mdata.template_file.service: Reading...[0m[0m
+2025-06-19T09:45:53.7253725Z [0m[1mdata.template_file.deployment: Reading...[0m[0m
+2025-06-19T09:45:53.7256202Z [0m[1mdata.template_file.deployment: Read complete after 0s [id=7d75ff3cf2945289e106f53dd77a9852246bdd5b36ee1292e2bafecca6b24fc2][0m
+2025-06-19T09:45:53.7258716Z [0m[1mdata.template_file.service: Read complete after 0s [id=76bbfcb1cf7d145576df0649f544b3e74e1ef6cfa340e8a52cc3b9f6a477d4c9][0m
+2025-06-19T09:45:55.2085889Z [0m[1mdata.yandex_dns_zone.main_zone: Reading...[0m[0m
+2025-06-19T09:45:55.2087626Z [0m[1mdata.yandex_compute_image.image: Reading...[0m[0m
+2025-06-19T09:45:55.2090490Z [0m[1mdata.yandex_cm_certificate.app_cert: Reading...[0m[0m
+2025-06-19T09:45:56.2814744Z [0m[1mdata.yandex_compute_image.image: Read complete after 1s [id=fd80j21lmqard15ciskf][0m
+2025-06-19T09:45:56.3040553Z [0m[1mdata.yandex_cm_certificate.app_cert: Read complete after 1s [id=fpq4g3hkj9p3ja7r9ms2][0m
+2025-06-19T09:45:56.3393036Z [0m[1mdata.yandex_dns_zone.main_zone: Read complete after 1s [id=dns5if2rmjsa04qau499][0m
+2025-06-19T09:45:56.3684017Z 
+2025-06-19T09:45:56.3684728Z Terraform used the selected providers to generate the following execution
+2025-06-19T09:45:56.3685651Z plan. Resource actions are indicated with the following symbols:
+2025-06-19T09:45:56.3686723Z   [32m+[0m create[0m
+2025-06-19T09:45:56.3687277Z  [36m<=[0m read (data resources)[0m
+2025-06-19T09:45:56.3687628Z 
+2025-06-19T09:45:56.3687881Z Terraform will perform the following actions:
+2025-06-19T09:45:56.3688276Z 
+2025-06-19T09:45:56.3688703Z [1m  # data.local_file.kubeconfig[0m will be read during apply
+2025-06-19T09:45:56.3689432Z   # (depends on a resource or a module with changes pending)
+2025-06-19T09:45:56.3690216Z [0m [36m<=[0m[0m data "local_file" "kubeconfig" {
+2025-06-19T09:45:56.3690974Z       [32m+[0m[0m content              = (known after apply)
+2025-06-19T09:45:56.3691924Z       [32m+[0m[0m content_base64       = (known after apply)
+2025-06-19T09:45:56.3692781Z       [32m+[0m[0m content_base64sha256 = (known after apply)
+2025-06-19T09:45:56.3693523Z       [32m+[0m[0m content_base64sha512 = (known after apply)
+2025-06-19T09:45:56.3694281Z       [32m+[0m[0m content_md5          = (known after apply)
+2025-06-19T09:45:56.3694976Z       [32m+[0m[0m content_sha1         = (known after apply)
+2025-06-19T09:45:56.3695682Z       [32m+[0m[0m content_sha256       = (known after apply)
+2025-06-19T09:45:56.3696363Z       [32m+[0m[0m content_sha512       = (known after apply)
+2025-06-19T09:45:56.3697008Z       [32m+[0m[0m filename             = "./admin.conf"
+2025-06-19T09:45:56.3697655Z       [32m+[0m[0m id                   = (known after apply)
+2025-06-19T09:45:56.3698201Z     }
+2025-06-19T09:45:56.3698383Z 
+2025-06-19T09:45:56.3698653Z [1m  # local_file.inventory[0m will be created
+2025-06-19T09:45:56.3699344Z [0m  [32m+[0m[0m resource "local_file" "inventory" {
+2025-06-19T09:45:56.3700070Z       [32m+[0m[0m content              = (known after apply)
+2025-06-19T09:45:56.3701422Z       [32m+[0m[0m content_base64sha256 = (known after apply)
+2025-06-19T09:45:56.3702375Z       [32m+[0m[0m content_base64sha512 = (known after apply)
+2025-06-19T09:45:56.3703096Z       [32m+[0m[0m content_md5          = (known after apply)
+2025-06-19T09:45:56.3703763Z       [32m+[0m[0m content_sha1         = (known after apply)
+2025-06-19T09:45:56.3704425Z       [32m+[0m[0m content_sha256       = (known after apply)
+2025-06-19T09:45:56.3705089Z       [32m+[0m[0m content_sha512       = (known after apply)
+2025-06-19T09:45:56.3705727Z       [32m+[0m[0m directory_permission = "0777"
+2025-06-19T09:45:56.3706115Z       [32m+[0m[0m file_permission      = "0777"
+2025-06-19T09:45:56.3706526Z       [32m+[0m[0m filename             = "./inventory.yml"
+2025-06-19T09:45:56.3706928Z       [32m+[0m[0m id                   = (known after apply)
+2025-06-19T09:45:56.3707231Z     }
+2025-06-19T09:45:56.3707375Z 
+2025-06-19T09:45:56.3707567Z [1m  # null_resource.deploy_app[0m will be created
+2025-06-19T09:45:56.3707971Z [0m  [32m+[0m[0m resource "null_resource" "deploy_app" {
+2025-06-19T09:45:56.3708354Z       [32m+[0m[0m id       = (known after apply)
+2025-06-19T09:45:56.3708689Z       [32m+[0m[0m triggers = {
+2025-06-19T09:45:56.3709031Z           [32m+[0m[0m "deployment_template" = <<-EOT
+2025-06-19T09:45:56.3709344Z                 apiVersion: apps/v1
+2025-06-19T09:45:56.3709617Z                 kind: Deployment
+2025-06-19T09:45:56.3709879Z                 metadata:
+2025-06-19T09:45:56.3710129Z                   name: barmaq-app
+2025-06-19T09:45:56.3710383Z                   namespace: app
+2025-06-19T09:45:56.3710626Z                 spec:
+2025-06-19T09:45:56.3710846Z                   replicas: 2
+2025-06-19T09:45:56.3711089Z                   selector:
+2025-06-19T09:45:56.3711320Z                     matchLabels:
+2025-06-19T09:45:56.3711830Z                       app: barmaq-app
+2025-06-19T09:45:56.3712327Z                   template:
+2025-06-19T09:45:56.3712559Z                     metadata:
+2025-06-19T09:45:56.3712794Z                       labels:
+2025-06-19T09:45:56.3713033Z                         app: barmaq-app
+2025-06-19T09:45:56.3713299Z                     spec:
+2025-06-19T09:45:56.3713525Z                       containers:
+2025-06-19T09:45:56.3713802Z                       - name: barmaq-app
+2025-06-19T09:45:56.3714109Z                         image: barmaq/barmaq-dapp
+2025-06-19T09:45:56.3714402Z                         ports:
+2025-06-19T09:45:56.3714666Z                         - containerPort: 80
+2025-06-19T09:45:56.3714941Z                         resources:
+2025-06-19T09:45:56.3715197Z                           requests:
+2025-06-19T09:45:56.3715463Z                             memory: "32Mi"
+2025-06-19T09:45:56.3715738Z                             cpu: "100m"
+2025-06-19T09:45:56.3716019Z                           limits:
+2025-06-19T09:45:56.3716333Z                             memory: "64Mi"
+2025-06-19T09:45:56.3716605Z                             cpu: "250m"
+2025-06-19T09:45:56.3716858Z             EOT
+2025-06-19T09:45:56.3717173Z           [32m+[0m[0m "service_template"    = <<-EOT
+2025-06-19T09:45:56.3717477Z                 apiVersion: v1
+2025-06-19T09:45:56.3717721Z                 kind: Service
+2025-06-19T09:45:56.3717962Z                 metadata:
+2025-06-19T09:45:56.3718203Z                   name: barmaq-app
+2025-06-19T09:45:56.3718462Z                   namespace: app
+2025-06-19T09:45:56.3718710Z                 spec:
+2025-06-19T09:45:56.3718931Z                   type: NodePort
+2025-06-19T09:45:56.3719176Z                   ports:
+2025-06-19T09:45:56.3719408Z                   - port: 80
+2025-06-19T09:45:56.3719664Z                     targetPort: 80
+2025-06-19T09:45:56.3719945Z                     nodePort: 30080
+2025-06-19T09:45:56.3720199Z                   selector:
+2025-06-19T09:45:56.3720443Z                     app: barmaq-app
+2025-06-19T09:45:56.3720689Z             EOT
+2025-06-19T09:45:56.3721036Z         }
+2025-06-19T09:45:56.3721223Z     }
+2025-06-19T09:45:56.3721332Z 
+2025-06-19T09:45:56.3721657Z [1m  # null_resource.deploy_k8s[0m will be created
+2025-06-19T09:45:56.3722066Z [0m  [32m+[0m[0m resource "null_resource" "deploy_k8s" {
+2025-06-19T09:45:56.3722434Z       [32m+[0m[0m id       = (known after apply)
+2025-06-19T09:45:56.3722761Z       [32m+[0m[0m triggers = {
+2025-06-19T09:45:56.3723112Z           [32m+[0m[0m "cluster_instance_ids" = (known after apply)
+2025-06-19T09:45:56.3723421Z         }
+2025-06-19T09:45:56.3723609Z     }
+2025-06-19T09:45:56.3723713Z 
+2025-06-19T09:45:56.3723908Z [1m  # null_resource.install_monitoring[0m will be created
+2025-06-19T09:45:56.3724342Z [0m  [32m+[0m[0m resource "null_resource" "install_monitoring" {
+2025-06-19T09:45:56.3724719Z       [32m+[0m[0m id = (known after apply)
+2025-06-19T09:45:56.3724991Z     }
+2025-06-19T09:45:56.3725099Z 
+2025-06-19T09:45:56.3725326Z [1m  # yandex_alb_backend_group.app_backend_group[0m will be created
+2025-06-19T09:45:56.3725817Z [0m  [32m+[0m[0m resource "yandex_alb_backend_group" "app_backend_group" {
+2025-06-19T09:45:56.3726246Z       [32m+[0m[0m created_at = (known after apply)
+2025-06-19T09:45:56.3726605Z       [32m+[0m[0m folder_id  = (known after apply)
+2025-06-19T09:45:56.3726953Z       [32m+[0m[0m id         = (known after apply)
+2025-06-19T09:45:56.3727327Z       [32m+[0m[0m name       = "barmaq-app-backend-group"
+2025-06-19T09:45:56.3727541Z 
+2025-06-19T09:45:56.3727677Z       [32m+[0m[0m http_backend {
+2025-06-19T09:45:56.3728033Z           [32m+[0m[0m name             = "barmaq-app-backend"
+2025-06-19T09:45:56.3728392Z           [32m+[0m[0m port             = 30080
+2025-06-19T09:45:56.3728759Z           [32m+[0m[0m target_group_ids = (known after apply)
+2025-06-19T09:45:56.3729123Z           [32m+[0m[0m weight           = 1
+2025-06-19T09:45:56.3729304Z 
+2025-06-19T09:45:56.3729440Z           [32m+[0m[0m healthcheck {
+2025-06-19T09:45:56.3729908Z               [32m+[0m[0m interval = "2s"
+2025-06-19T09:45:56.3730242Z               [32m+[0m[0m timeout  = "10s"
+2025-06-19T09:45:56.3730429Z 
+2025-06-19T09:45:56.3730587Z               [32m+[0m[0m http_healthcheck {
+2025-06-19T09:45:56.3730918Z                   [32m+[0m[0m path = "/"
+2025-06-19T09:45:56.3731379Z                 }
+2025-06-19T09:45:56.3731882Z             }
+2025-06-19T09:45:56.3732193Z         }
+2025-06-19T09:45:56.3732508Z     }
+2025-06-19T09:45:56.3732684Z 
+2025-06-19T09:45:56.3733052Z [1m  # yandex_alb_http_router.app_router[0m will be created
+2025-06-19T09:45:56.3733877Z [0m  [32m+[0m[0m resource "yandex_alb_http_router" "app_router" {
+2025-06-19T09:45:56.3734677Z       [32m+[0m[0m created_at = (known after apply)
+2025-06-19T09:45:56.3735365Z       [32m+[0m[0m folder_id  = (known after apply)
+2025-06-19T09:45:56.3736084Z       [32m+[0m[0m id         = (known after apply)
+2025-06-19T09:45:56.3736768Z       [32m+[0m[0m name       = "barmaq-app-router"
+2025-06-19T09:45:56.3737297Z     }
+2025-06-19T09:45:56.3737490Z 
+2025-06-19T09:45:56.3737868Z [1m  # yandex_alb_load_balancer.app_alb[0m will be created
+2025-06-19T09:45:56.3738696Z [0m  [32m+[0m[0m resource "yandex_alb_load_balancer" "app_alb" {
+2025-06-19T09:45:56.3739459Z       [32m+[0m[0m created_at   = (known after apply)
+2025-06-19T09:45:56.3740185Z       [32m+[0m[0m folder_id    = (known after apply)
+2025-06-19T09:45:56.3740904Z       [32m+[0m[0m id           = (known after apply)
+2025-06-19T09:45:56.3741806Z       [32m+[0m[0m log_group_id = (known after apply)
+2025-06-19T09:45:56.3742531Z       [32m+[0m[0m name         = "barmaq-app-alb"
+2025-06-19T09:45:56.3743219Z       [32m+[0m[0m network_id   = (known after apply)
+2025-06-19T09:45:56.3743899Z       [32m+[0m[0m status       = (known after apply)
+2025-06-19T09:45:56.3744279Z 
+2025-06-19T09:45:56.3744567Z       [32m+[0m[0m allocation_policy {
+2025-06-19T09:45:56.3745182Z           [32m+[0m[0m location {
+2025-06-19T09:45:56.3746094Z               [32m+[0m[0m disable_traffic = false
+2025-06-19T09:45:56.3746839Z               [32m+[0m[0m subnet_id       = (known after apply)
+2025-06-19T09:45:56.3747601Z               [32m+[0m[0m zone_id         = "ru-central1-a"
+2025-06-19T09:45:56.3748142Z             }
+2025-06-19T09:45:56.3748506Z         }
+2025-06-19T09:45:56.3748716Z 
+2025-06-19T09:45:56.3748985Z       [32m+[0m[0m listener {
+2025-06-19T09:45:56.3749569Z           [32m+[0m[0m name = "https-listener"
+2025-06-19T09:45:56.3749937Z 
+2025-06-19T09:45:56.3750190Z           [32m+[0m[0m endpoint {
+2025-06-19T09:45:56.3750754Z               [32m+[0m[0m ports = [
+2025-06-19T09:45:56.3751337Z                   [32m+[0m[0m 443,
+2025-06-19T09:45:56.3752012Z                 ]
+2025-06-19T09:45:56.3752258Z 
+2025-06-19T09:45:56.3752535Z               [32m+[0m[0m address {
+2025-06-19T09:45:56.3753173Z                   [32m+[0m[0m external_ipv4_address {
+2025-06-19T09:45:56.3753913Z                       [32m+[0m[0m address = (known after apply)
+2025-06-19T09:45:56.3754472Z                     }
+2025-06-19T09:45:56.3754863Z                 }
+2025-06-19T09:45:56.3755232Z             }
+2025-06-19T09:45:56.3755442Z 
+2025-06-19T09:45:56.3755708Z           [32m+[0m[0m tls {
+2025-06-19T09:45:56.3756279Z               [32m+[0m[0m default_handler {
+2025-06-19T09:45:56.3756933Z                   [32m+[0m[0m certificate_ids = [
+2025-06-19T09:45:56.3757620Z                       [32m+[0m[0m "fpq4g3hkj9p3ja7r9ms2",
+2025-06-19T09:45:56.3758157Z                     ]
+2025-06-19T09:45:56.3758414Z 
+2025-06-19T09:45:56.3758719Z                   [32m+[0m[0m http_handler {
+2025-06-19T09:45:56.3759381Z                       [32m+[0m[0m allow_http10       = false
+2025-06-19T09:45:56.3760122Z                       [32m+[0m[0m http_router_id     = (known after apply)
+2025-06-19T09:45:56.3760879Z                       [32m+[0m[0m rewrite_request_id = false
+2025-06-19T09:45:56.3761938Z                     }
+2025-06-19T09:45:56.3762326Z                 }
+2025-06-19T09:45:56.3762670Z             }
+2025-06-19T09:45:56.3763006Z         }
+2025-06-19T09:45:56.3763341Z     }
+2025-06-19T09:45:56.3763521Z 
+2025-06-19T09:45:56.3763955Z [1m  # yandex_alb_target_group.app_alb_target_group[0m will be created
+2025-06-19T09:45:56.3764860Z [0m  [32m+[0m[0m resource "yandex_alb_target_group" "app_alb_target_group" {
+2025-06-19T09:45:56.3765690Z       [32m+[0m[0m created_at = (known after apply)
+2025-06-19T09:45:56.3766367Z       [32m+[0m[0m folder_id  = (known after apply)
+2025-06-19T09:45:56.3767058Z       [32m+[0m[0m id         = (known after apply)
+2025-06-19T09:45:56.3767798Z       [32m+[0m[0m name       = "barmaq-app-alb-target-group"
+2025-06-19T09:45:56.3768241Z 
+2025-06-19T09:45:56.3768501Z       [32m+[0m[0m target {
+2025-06-19T09:45:56.3769110Z           [32m+[0m[0m ip_address = (known after apply)
+2025-06-19T09:45:56.3769760Z           [32m+[0m[0m subnet_id  = (known after apply)
+2025-06-19T09:45:56.3770298Z         }
+2025-06-19T09:45:56.3770633Z     }
+2025-06-19T09:45:56.3770824Z 
+2025-06-19T09:45:56.3771251Z [1m  # yandex_alb_virtual_host.app_virtual_host[0m will be created
+2025-06-19T09:45:56.3795058Z [0m  [32m+[0m[0m resource "yandex_alb_virtual_host" "app_virtual_host" {
+2025-06-19T09:45:56.3795836Z       [32m+[0m[0m http_router_id = (known after apply)
+2025-06-19T09:45:56.3796445Z       [32m+[0m[0m id             = (known after apply)
+2025-06-19T09:45:56.3797096Z       [32m+[0m[0m name           = "barmaq-app-virtual-host"
+2025-06-19T09:45:56.3797467Z 
+2025-06-19T09:45:56.3797652Z       [32m+[0m[0m route {
+2025-06-19T09:45:56.3798172Z           [32m+[0m[0m name = "app-route"
+2025-06-19T09:45:56.3798500Z 
+2025-06-19T09:45:56.3798724Z           [32m+[0m[0m http_route {
+2025-06-19T09:45:56.3799253Z               [32m+[0m[0m http_route_action {
+2025-06-19T09:45:56.3799847Z                   [32m+[0m[0m backend_group_id = (known after apply)
+2025-06-19T09:45:56.3800549Z                 }
+2025-06-19T09:45:56.3800917Z             }
+2025-06-19T09:45:56.3801157Z         }
+2025-06-19T09:45:56.3801658Z     }
+2025-06-19T09:45:56.3802011Z 
+2025-06-19T09:45:56.3802274Z [1m  # yandex_compute_instance.kube-cp[0][0m will be created
+2025-06-19T09:45:56.3802955Z [0m  [32m+[0m[0m resource "yandex_compute_instance" "kube-cp" {
+2025-06-19T09:45:56.3803712Z       [32m+[0m[0m created_at                = (known after apply)
+2025-06-19T09:45:56.3804403Z       [32m+[0m[0m folder_id                 = (known after apply)
+2025-06-19T09:45:56.3805085Z       [32m+[0m[0m fqdn                      = (known after apply)
+2025-06-19T09:45:56.3805765Z       [32m+[0m[0m gpu_cluster_id            = (known after apply)
+2025-06-19T09:45:56.3806471Z       [32m+[0m[0m hardware_generation       = (known after apply)
+2025-06-19T09:45:56.3807162Z       [32m+[0m[0m hostname                  = "kube-cp-1"
+2025-06-19T09:45:56.3807829Z       [32m+[0m[0m id                        = (known after apply)
+2025-06-19T09:45:56.3808567Z       [32m+[0m[0m maintenance_grace_period  = (known after apply)
+2025-06-19T09:45:56.3809305Z       [32m+[0m[0m maintenance_policy        = (known after apply)
+2025-06-19T09:45:56.3809954Z       [32m+[0m[0m metadata                  = {
+2025-06-19T09:45:56.3810563Z           [32m+[0m[0m "serial-port-enable" = "1"
+2025-06-19T09:45:56.3811233Z           [32m+[0m[0m "ssh-keys"           = (sensitive value)
+2025-06-19T09:45:56.3811895Z         }
+2025-06-19T09:45:56.3812382Z       [32m+[0m[0m name                      = "kube-cp-1"
+2025-06-19T09:45:56.3813047Z       [32m+[0m[0m network_acceleration_type = "standard"
+2025-06-19T09:45:56.3813724Z       [32m+[0m[0m platform_id               = "standard-v3"
+2025-06-19T09:45:56.3814434Z       [32m+[0m[0m service_account_id        = (known after apply)
+2025-06-19T09:45:56.3815163Z       [32m+[0m[0m status                    = (known after apply)
+2025-06-19T09:45:56.3816049Z       [32m+[0m[0m zone                      = "ru-central1-a"
+2025-06-19T09:45:56.3816428Z 
+2025-06-19T09:45:56.3816655Z       [32m+[0m[0m boot_disk {
+2025-06-19T09:45:56.3817176Z           [32m+[0m[0m auto_delete = true
+2025-06-19T09:45:56.3817785Z           [32m+[0m[0m device_name = (known after apply)
+2025-06-19T09:45:56.3818421Z           [32m+[0m[0m disk_id     = (known after apply)
+2025-06-19T09:45:56.3819051Z           [32m+[0m[0m mode        = (known after apply)
+2025-06-19T09:45:56.3819394Z 
+2025-06-19T09:45:56.3819642Z           [32m+[0m[0m initialize_params {
+2025-06-19T09:45:56.3820269Z               [32m+[0m[0m block_size  = (known after apply)
+2025-06-19T09:45:56.3820940Z               [32m+[0m[0m description = (known after apply)
+2025-06-19T09:45:56.3821840Z               [32m+[0m[0m image_id    = "fd80j21lmqard15ciskf"
+2025-06-19T09:45:56.3822514Z               [32m+[0m[0m name        = (known after apply)
+2025-06-19T09:45:56.3823151Z               [32m+[0m[0m size        = (known after apply)
+2025-06-19T09:45:56.3823794Z               [32m+[0m[0m snapshot_id = (known after apply)
+2025-06-19T09:45:56.3824410Z               [32m+[0m[0m type        = "network-hdd"
+2025-06-19T09:45:56.3824897Z             }
+2025-06-19T09:45:56.3825211Z         }
+2025-06-19T09:45:56.3825381Z 
+2025-06-19T09:45:56.3825626Z       [32m+[0m[0m network_interface {
+2025-06-19T09:45:56.3826099Z           [32m+[0m[0m index              = (known after apply)
+2025-06-19T09:45:56.3826490Z           [32m+[0m[0m ip_address         = (known after apply)
+2025-06-19T09:45:56.3826846Z           [32m+[0m[0m ipv4               = true
+2025-06-19T09:45:56.3827224Z           [32m+[0m[0m ipv6               = (known after apply)
+2025-06-19T09:45:56.3827611Z           [32m+[0m[0m ipv6_address       = (known after apply)
+2025-06-19T09:45:56.3827996Z           [32m+[0m[0m mac_address        = (known after apply)
+2025-06-19T09:45:56.3828384Z           [32m+[0m[0m nat                = true
+2025-06-19T09:45:56.3829454Z           [32m+[0m[0m nat_ip_address     = (known after apply)
+2025-06-19T09:45:56.3830136Z           [32m+[0m[0m nat_ip_version     = (known after apply)
+2025-06-19T09:45:56.3830757Z           [32m+[0m[0m security_group_ids = (known after apply)
+2025-06-19T09:45:56.3831160Z           [32m+[0m[0m subnet_id          = (known after apply)
+2025-06-19T09:45:56.3831626Z         }
+2025-06-19T09:45:56.3831825Z 
+2025-06-19T09:45:56.3832054Z       [32m+[0m[0m resources {
+2025-06-19T09:45:56.3832575Z           [32m+[0m[0m core_fraction = 20
+2025-06-19T09:45:56.3833008Z           [32m+[0m[0m cores         = 2
+2025-06-19T09:45:56.3833327Z           [32m+[0m[0m memory        = 2
+2025-06-19T09:45:56.3833590Z         }
+2025-06-19T09:45:56.3833706Z 
+2025-06-19T09:45:56.3833845Z       [32m+[0m[0m scheduling_policy {
+2025-06-19T09:45:56.3834185Z           [32m+[0m[0m preemptible = true
+2025-06-19T09:45:56.3834454Z         }
+2025-06-19T09:45:56.3834647Z     }
+2025-06-19T09:45:56.3834771Z 
+2025-06-19T09:45:56.3834994Z [1m  # yandex_compute_instance.kube-nodes[0][0m will be created
+2025-06-19T09:45:56.3835463Z [0m  [32m+[0m[0m resource "yandex_compute_instance" "kube-nodes" {
+2025-06-19T09:45:56.3835909Z       [32m+[0m[0m created_at                = (known after apply)
+2025-06-19T09:45:56.3836326Z       [32m+[0m[0m folder_id                 = (known after apply)
+2025-06-19T09:45:56.3836729Z       [32m+[0m[0m fqdn                      = (known after apply)
+2025-06-19T09:45:56.3837128Z       [32m+[0m[0m gpu_cluster_id            = (known after apply)
+2025-06-19T09:45:56.3837524Z       [32m+[0m[0m hardware_generation       = (known after apply)
+2025-06-19T09:45:56.3837927Z       [32m+[0m[0m hostname                  = "kube-nodes-1"
+2025-06-19T09:45:56.3838323Z       [32m+[0m[0m id                        = (known after apply)
+2025-06-19T09:45:56.3838721Z       [32m+[0m[0m maintenance_grace_period  = (known after apply)
+2025-06-19T09:45:56.3839297Z       [32m+[0m[0m maintenance_policy        = (known after apply)
+2025-06-19T09:45:56.3839677Z       [32m+[0m[0m metadata                  = {
+2025-06-19T09:45:56.3840036Z           [32m+[0m[0m "serial-port-enable" = "1"
+2025-06-19T09:45:56.3840421Z           [32m+[0m[0m "ssh-keys"           = (sensitive value)
+2025-06-19T09:45:56.3840725Z         }
+2025-06-19T09:45:56.3841015Z       [32m+[0m[0m name                      = "kube-nodes-1"
+2025-06-19T09:45:56.3841404Z       [32m+[0m[0m network_acceleration_type = "standard"
+2025-06-19T09:45:56.3841986Z       [32m+[0m[0m platform_id               = "standard-v3"
+2025-06-19T09:45:56.3842408Z       [32m+[0m[0m service_account_id        = (known after apply)
+2025-06-19T09:45:56.3842840Z       [32m+[0m[0m status                    = (known after apply)
+2025-06-19T09:45:56.3843244Z       [32m+[0m[0m zone                      = "ru-central1-a"
+2025-06-19T09:45:56.3843462Z 
+2025-06-19T09:45:56.3843592Z       [32m+[0m[0m boot_disk {
+2025-06-19T09:45:56.3843909Z           [32m+[0m[0m auto_delete = true
+2025-06-19T09:45:56.3844272Z           [32m+[0m[0m device_name = (known after apply)
+2025-06-19T09:45:56.3844652Z           [32m+[0m[0m disk_id     = (known after apply)
+2025-06-19T09:45:56.3845021Z           [32m+[0m[0m mode        = (known after apply)
+2025-06-19T09:45:56.3845216Z 
+2025-06-19T09:45:56.3845371Z           [32m+[0m[0m initialize_params {
+2025-06-19T09:45:56.3845734Z               [32m+[0m[0m block_size  = (known after apply)
+2025-06-19T09:45:56.3846107Z               [32m+[0m[0m description = (known after apply)
+2025-06-19T09:45:56.3846497Z               [32m+[0m[0m image_id    = "fd80j21lmqard15ciskf"
+2025-06-19T09:45:56.3846884Z               [32m+[0m[0m name        = (known after apply)
+2025-06-19T09:45:56.3847246Z               [32m+[0m[0m size        = (known after apply)
+2025-06-19T09:45:56.3847614Z               [32m+[0m[0m snapshot_id = (known after apply)
+2025-06-19T09:45:56.3847980Z               [32m+[0m[0m type        = "network-hdd"
+2025-06-19T09:45:56.3848459Z             }
+2025-06-19T09:45:56.3848662Z         }
+2025-06-19T09:45:56.3848773Z 
+2025-06-19T09:45:56.3848919Z       [32m+[0m[0m network_interface {
+2025-06-19T09:45:56.3849287Z           [32m+[0m[0m index              = (known after apply)
+2025-06-19T09:45:56.3849674Z           [32m+[0m[0m ip_address         = (known after apply)
+2025-06-19T09:45:56.3850034Z           [32m+[0m[0m ipv4               = true
+2025-06-19T09:45:56.3850398Z           [32m+[0m[0m ipv6               = (known after apply)
+2025-06-19T09:45:56.3850772Z           [32m+[0m[0m ipv6_address       = (known after apply)
+2025-06-19T09:45:56.3851156Z           [32m+[0m[0m mac_address        = (known after apply)
+2025-06-19T09:45:56.3851678Z           [32m+[0m[0m nat                = true
+2025-06-19T09:45:56.3852130Z           [32m+[0m[0m nat_ip_address     = (known after apply)
+2025-06-19T09:45:56.3852526Z           [32m+[0m[0m nat_ip_version     = (known after apply)
+2025-06-19T09:45:56.3852918Z           [32m+[0m[0m security_group_ids = (known after apply)
+2025-06-19T09:45:56.3853305Z           [32m+[0m[0m subnet_id          = (known after apply)
+2025-06-19T09:45:56.3853587Z         }
+2025-06-19T09:45:56.3853705Z 
+2025-06-19T09:45:56.3853837Z       [32m+[0m[0m resources {
+2025-06-19T09:45:56.3854140Z           [32m+[0m[0m core_fraction = 20
+2025-06-19T09:45:56.3854469Z           [32m+[0m[0m cores         = 2
+2025-06-19T09:45:56.3854784Z           [32m+[0m[0m memory        = 2
+2025-06-19T09:45:56.3855042Z         }
+2025-06-19T09:45:56.3855154Z 
+2025-06-19T09:45:56.3855298Z       [32m+[0m[0m scheduling_policy {
+2025-06-19T09:45:56.3855621Z           [32m+[0m[0m preemptible = true
+2025-06-19T09:45:56.3855885Z         }
+2025-06-19T09:45:56.3856076Z     }
+2025-06-19T09:45:56.3856185Z 
+2025-06-19T09:45:56.3856401Z [1m  # yandex_compute_instance.kube-nodes[1][0m will be created
+2025-06-19T09:45:56.3856856Z [0m  [32m+[0m[0m resource "yandex_compute_instance" "kube-nodes" {
+2025-06-19T09:45:56.3857437Z       [32m+[0m[0m created_at                = (known after apply)
+2025-06-19T09:45:56.3857854Z       [32m+[0m[0m folder_id                 = (known after apply)
+2025-06-19T09:45:56.3858254Z       [32m+[0m[0m fqdn                      = (known after apply)
+2025-06-19T09:45:56.3858646Z       [32m+[0m[0m gpu_cluster_id            = (known after apply)
+2025-06-19T09:45:56.3859055Z       [32m+[0m[0m hardware_generation       = (known after apply)
+2025-06-19T09:45:56.3859452Z       [32m+[0m[0m hostname                  = "kube-nodes-2"
+2025-06-19T09:45:56.3859847Z       [32m+[0m[0m id                        = (known after apply)
+2025-06-19T09:45:56.3860246Z       [32m+[0m[0m maintenance_grace_period  = (known after apply)
+2025-06-19T09:45:56.3860673Z       [32m+[0m[0m maintenance_policy        = (known after apply)
+2025-06-19T09:45:56.3861054Z       [32m+[0m[0m metadata                  = {
+2025-06-19T09:45:56.3861409Z           [32m+[0m[0m "serial-port-enable" = "1"
+2025-06-19T09:45:56.3862040Z           [32m+[0m[0m "ssh-keys"           = (sensitive value)
+2025-06-19T09:45:56.3862353Z         }
+2025-06-19T09:45:56.3862640Z       [32m+[0m[0m name                      = "kube-nodes-2"
+2025-06-19T09:45:56.3863038Z       [32m+[0m[0m network_acceleration_type = "standard"
+2025-06-19T09:45:56.3863430Z       [32m+[0m[0m platform_id               = "standard-v3"
+2025-06-19T09:45:56.3863841Z       [32m+[0m[0m service_account_id        = (known after apply)
+2025-06-19T09:45:56.3864252Z       [32m+[0m[0m status                    = (known after apply)
+2025-06-19T09:45:56.3864650Z       [32m+[0m[0m zone                      = "ru-central1-b"
+2025-06-19T09:45:56.3864868Z 
+2025-06-19T09:45:56.3864999Z       [32m+[0m[0m boot_disk {
+2025-06-19T09:45:56.3865305Z           [32m+[0m[0m auto_delete = true
+2025-06-19T09:45:56.3865663Z           [32m+[0m[0m device_name = (known after apply)
+2025-06-19T09:45:56.3866194Z           [32m+[0m[0m disk_id     = (known after apply)
+2025-06-19T09:45:56.3866551Z           [32m+[0m[0m mode        = (known after apply)
+2025-06-19T09:45:56.3866753Z 
+2025-06-19T09:45:56.3866906Z           [32m+[0m[0m initialize_params {
+2025-06-19T09:45:56.3867263Z               [32m+[0m[0m block_size  = (known after apply)
+2025-06-19T09:45:56.3867644Z               [32m+[0m[0m description = (known after apply)
+2025-06-19T09:45:56.3868033Z               [32m+[0m[0m image_id    = "fd80j21lmqard15ciskf"
+2025-06-19T09:45:56.3868410Z               [32m+[0m[0m name        = (known after apply)
+2025-06-19T09:45:56.3868776Z               [32m+[0m[0m size        = (known after apply)
+2025-06-19T09:45:56.3869136Z               [32m+[0m[0m snapshot_id = (known after apply)
+2025-06-19T09:45:56.3869502Z               [32m+[0m[0m type        = "network-hdd"
+2025-06-19T09:45:56.3869784Z             }
+2025-06-19T09:45:56.3869980Z         }
+2025-06-19T09:45:56.3870099Z 
+2025-06-19T09:45:56.3870245Z       [32m+[0m[0m network_interface {
+2025-06-19T09:45:56.3870604Z           [32m+[0m[0m index              = (known after apply)
+2025-06-19T09:45:56.3870996Z           [32m+[0m[0m ip_address         = (known after apply)
+2025-06-19T09:45:56.3871351Z           [32m+[0m[0m ipv4               = true
+2025-06-19T09:45:56.3872044Z           [32m+[0m[0m ipv6               = (known after apply)
+2025-06-19T09:45:56.3872452Z           [32m+[0m[0m ipv6_address       = (known after apply)
+2025-06-19T09:45:56.3872831Z           [32m+[0m[0m mac_address        = (known after apply)
+2025-06-19T09:45:56.3873188Z           [32m+[0m[0m nat                = true
+2025-06-19T09:45:56.3873547Z           [32m+[0m[0m nat_ip_address     = (known after apply)
+2025-06-19T09:45:56.3873933Z           [32m+[0m[0m nat_ip_version     = (known after apply)
+2025-06-19T09:45:56.3874321Z           [32m+[0m[0m security_group_ids = (known after apply)
+2025-06-19T09:45:56.3874860Z           [32m+[0m[0m subnet_id          = (known after apply)
+2025-06-19T09:45:56.3875154Z         }
+2025-06-19T09:45:56.3875267Z 
+2025-06-19T09:45:56.3875397Z       [32m+[0m[0m resources {
+2025-06-19T09:45:56.3875700Z           [32m+[0m[0m core_fraction = 20
+2025-06-19T09:45:56.3876020Z           [32m+[0m[0m cores         = 2
+2025-06-19T09:45:56.3876330Z           [32m+[0m[0m memory        = 2
+2025-06-19T09:45:56.3876595Z         }
+2025-06-19T09:45:56.3876708Z 
+2025-06-19T09:45:56.3876847Z       [32m+[0m[0m scheduling_policy {
+2025-06-19T09:45:56.3877178Z           [32m+[0m[0m preemptible = true
+2025-06-19T09:45:56.3877445Z         }
+2025-06-19T09:45:56.3877632Z     }
+2025-06-19T09:45:56.3877744Z 
+2025-06-19T09:45:56.3877946Z [1m  # yandex_dns_recordset.app_record[0m will be created
+2025-06-19T09:45:56.3878396Z [0m  [32m+[0m[0m resource "yandex_dns_recordset" "app_record" {
+2025-06-19T09:45:56.3878793Z       [32m+[0m[0m data    = (known after apply)
+2025-06-19T09:45:56.3879147Z       [32m+[0m[0m id      = (known after apply)
+2025-06-19T09:45:56.3879473Z       [32m+[0m[0m name    = "app"
+2025-06-19T09:45:56.3879782Z       [32m+[0m[0m ttl     = 200
+2025-06-19T09:45:56.3880072Z       [32m+[0m[0m type    = "A"
+2025-06-19T09:45:56.3880411Z       [32m+[0m[0m zone_id = "dns5if2rmjsa04qau499"
+2025-06-19T09:45:56.3880696Z     }
+2025-06-19T09:45:56.3880809Z 
+2025-06-19T09:45:56.3881019Z [1m  # yandex_dns_recordset.grafana_record[0m will be created
+2025-06-19T09:45:56.3881631Z [0m  [32m+[0m[0m resource "yandex_dns_recordset" "grafana_record" {
+2025-06-19T09:45:56.3882044Z       [32m+[0m[0m data    = (known after apply)
+2025-06-19T09:45:56.3882390Z       [32m+[0m[0m id      = (known after apply)
+2025-06-19T09:45:56.3882709Z       [32m+[0m[0m name    = "grafana"
+2025-06-19T09:45:56.3883019Z       [32m+[0m[0m ttl     = 200
+2025-06-19T09:45:56.3883306Z       [32m+[0m[0m type    = "A"
+2025-06-19T09:45:56.3883634Z       [32m+[0m[0m zone_id = "dns5if2rmjsa04qau499"
+2025-06-19T09:45:56.3884058Z     }
+2025-06-19T09:45:56.3884173Z 
+2025-06-19T09:45:56.3884425Z [1m  # yandex_lb_network_load_balancer.grafana_balancer[0m will be created
+2025-06-19T09:45:56.3884959Z [0m  [32m+[0m[0m resource "yandex_lb_network_load_balancer" "grafana_balancer" {
+2025-06-19T09:45:56.3885430Z       [32m+[0m[0m allow_zonal_shift   = (known after apply)
+2025-06-19T09:45:56.3885823Z       [32m+[0m[0m created_at          = (known after apply)
+2025-06-19T09:45:56.3886210Z       [32m+[0m[0m deletion_protection = (known after apply)
+2025-06-19T09:45:56.3886590Z       [32m+[0m[0m folder_id           = (known after apply)
+2025-06-19T09:45:56.3886965Z       [32m+[0m[0m id                  = (known after apply)
+2025-06-19T09:45:56.3887354Z       [32m+[0m[0m name                = "grafana-load-balancer"
+2025-06-19T09:45:56.3887743Z       [32m+[0m[0m region_id           = (known after apply)
+2025-06-19T09:45:56.3888108Z       [32m+[0m[0m type                = "external"
+2025-06-19T09:45:56.3888315Z 
+2025-06-19T09:45:56.3888460Z       [32m+[0m[0m attached_target_group {
+2025-06-19T09:45:56.3888821Z           [32m+[0m[0m target_group_id = (known after apply)
+2025-06-19T09:45:56.3889034Z 
+2025-06-19T09:45:56.3889171Z           [32m+[0m[0m healthcheck {
+2025-06-19T09:45:56.3889501Z               [32m+[0m[0m healthy_threshold   = 2
+2025-06-19T09:45:56.3889849Z               [32m+[0m[0m interval            = 2
+2025-06-19T09:45:56.3890184Z               [32m+[0m[0m name                = "http"
+2025-06-19T09:45:56.3890534Z               [32m+[0m[0m timeout             = 1
+2025-06-19T09:45:56.3890875Z               [32m+[0m[0m unhealthy_threshold = 2
+2025-06-19T09:45:56.3891060Z 
+2025-06-19T09:45:56.3891206Z               [32m+[0m[0m http_options {
+2025-06-19T09:45:56.3891802Z                   [32m+[0m[0m path = "/api/health"
+2025-06-19T09:45:56.3892166Z                   [32m+[0m[0m port = 30000
+2025-06-19T09:45:56.3892435Z                 }
+2025-06-19T09:45:56.3892788Z             }
+2025-06-19T09:45:56.3892979Z         }
+2025-06-19T09:45:56.3893092Z 
+2025-06-19T09:45:56.3893226Z       [32m+[0m[0m listener {
+2025-06-19T09:45:56.3893563Z           [32m+[0m[0m name        = "grafana-http-listener"
+2025-06-19T09:45:56.3893919Z           [32m+[0m[0m port        = 80
+2025-06-19T09:45:56.3894271Z           [32m+[0m[0m protocol    = (known after apply)
+2025-06-19T09:45:56.3894621Z           [32m+[0m[0m target_port = 30000
+2025-06-19T09:45:56.3894808Z 
+2025-06-19T09:45:56.3894962Z           [32m+[0m[0m external_address_spec {
+2025-06-19T09:45:56.3895318Z               [32m+[0m[0m address    = (known after apply)
+2025-06-19T09:45:56.3895668Z               [32m+[0m[0m ip_version = "ipv4"
+2025-06-19T09:45:56.3895935Z             }
+2025-06-19T09:45:56.3896129Z         }
+2025-06-19T09:45:56.3896323Z     }
+2025-06-19T09:45:56.3896431Z 
+2025-06-19T09:45:56.3896672Z [1m  # yandex_lb_target_group.grafana_target_group[0m will be created
+2025-06-19T09:45:56.3897191Z [0m  [32m+[0m[0m resource "yandex_lb_target_group" "grafana_target_group" {
+2025-06-19T09:45:56.3897630Z       [32m+[0m[0m created_at = (known after apply)
+2025-06-19T09:45:56.3898034Z       [32m+[0m[0m folder_id  = (known after apply)
+2025-06-19T09:45:56.3898386Z       [32m+[0m[0m id         = (known after apply)
+2025-06-19T09:45:56.3898740Z       [32m+[0m[0m name       = "grafana-target-group"
+2025-06-19T09:45:56.3899101Z       [32m+[0m[0m region_id  = (known after apply)
+2025-06-19T09:45:56.3899296Z 
+2025-06-19T09:45:56.3899417Z       [32m+[0m[0m target {
+2025-06-19T09:45:56.3899732Z           [32m+[0m[0m address   = (known after apply)
+2025-06-19T09:45:56.3900096Z           [32m+[0m[0m subnet_id = (known after apply)
+2025-06-19T09:45:56.3900372Z         }
+2025-06-19T09:45:56.3900558Z     }
+2025-06-19T09:45:56.3900667Z 
+2025-06-19T09:45:56.3900843Z [1m  # yandex_vpc_network.develop[0m will be created
+2025-06-19T09:45:56.3901246Z [0m  [32m+[0m[0m resource "yandex_vpc_network" "develop" {
+2025-06-19T09:45:56.3901984Z       [32m+[0m[0m created_at                = (known after apply)
+2025-06-19T09:45:56.3902417Z       [32m+[0m[0m default_security_group_id = (known after apply)
+2025-06-19T09:45:56.3902836Z       [32m+[0m[0m folder_id                 = (known after apply)
+2025-06-19T09:45:56.3903228Z       [32m+[0m[0m id                        = (known after apply)
+2025-06-19T09:45:56.3903618Z       [32m+[0m[0m labels                    = (known after apply)
+2025-06-19T09:45:56.3903996Z       [32m+[0m[0m name                      = "develop"
+2025-06-19T09:45:56.3904379Z       [32m+[0m[0m subnet_ids                = (known after apply)
+2025-06-19T09:45:56.3904681Z     }
+2025-06-19T09:45:56.3904790Z 
+2025-06-19T09:45:56.3905010Z [1m  # yandex_vpc_subnet.subnet["ru-central1-a"][0m will be created
+2025-06-19T09:45:56.3905445Z [0m  [32m+[0m[0m resource "yandex_vpc_subnet" "subnet" {
+2025-06-19T09:45:56.3905839Z       [32m+[0m[0m created_at     = (known after apply)
+2025-06-19T09:45:56.3906215Z       [32m+[0m[0m folder_id      = (known after apply)
+2025-06-19T09:45:56.3906576Z       [32m+[0m[0m id             = (known after apply)
+2025-06-19T09:45:56.3906925Z       [32m+[0m[0m labels         = (known after apply)
+2025-06-19T09:45:56.3907291Z       [32m+[0m[0m name           = "subnet-ru-central1-a"
+2025-06-19T09:45:56.3907663Z       [32m+[0m[0m network_id     = (known after apply)
+2025-06-19T09:45:56.3907990Z       [32m+[0m[0m v4_cidr_blocks = [
+2025-06-19T09:45:56.3908324Z           [32m+[0m[0m "10.0.1.0/24",
+2025-06-19T09:45:56.3908569Z         ]
+2025-06-19T09:45:56.3908846Z       [32m+[0m[0m v6_cidr_blocks = (known after apply)
+2025-06-19T09:45:56.3909209Z       [32m+[0m[0m zone           = "ru-central1-a"
+2025-06-19T09:45:56.3909486Z     }
+2025-06-19T09:45:56.3909595Z 
+2025-06-19T09:45:56.3909820Z [1m  # yandex_vpc_subnet.subnet["ru-central1-b"][0m will be created
+2025-06-19T09:45:56.3910249Z [0m  [32m+[0m[0m resource "yandex_vpc_subnet" "subnet" {
+2025-06-19T09:45:56.3910762Z       [32m+[0m[0m created_at     = (known after apply)
+2025-06-19T09:45:56.3911119Z       [32m+[0m[0m folder_id      = (known after apply)
+2025-06-19T09:45:56.3911787Z       [32m+[0m[0m id             = (known after apply)
+2025-06-19T09:45:56.3912257Z       [32m+[0m[0m labels         = (known after apply)
+2025-06-19T09:45:56.3912653Z       [32m+[0m[0m name           = "subnet-ru-central1-b"
+2025-06-19T09:45:56.3913029Z       [32m+[0m[0m network_id     = (known after apply)
+2025-06-19T09:45:56.3913372Z       [32m+[0m[0m v4_cidr_blocks = [
+2025-06-19T09:45:56.3913683Z           [32m+[0m[0m "10.0.2.0/24",
+2025-06-19T09:45:56.3913931Z         ]
+2025-06-19T09:45:56.3914210Z       [32m+[0m[0m v6_cidr_blocks = (known after apply)
+2025-06-19T09:45:56.3914570Z       [32m+[0m[0m zone           = "ru-central1-b"
+2025-06-19T09:45:56.3914859Z     }
+2025-06-19T09:45:56.3914970Z 
+2025-06-19T09:45:56.3915200Z [1m  # yandex_vpc_subnet.subnet["ru-central1-d"][0m will be created
+2025-06-19T09:45:56.3915641Z [0m  [32m+[0m[0m resource "yandex_vpc_subnet" "subnet" {
+2025-06-19T09:45:56.3916024Z       [32m+[0m[0m created_at     = (known after apply)
+2025-06-19T09:45:56.3916383Z       [32m+[0m[0m folder_id      = (known after apply)
+2025-06-19T09:45:56.3916736Z       [32m+[0m[0m id             = (known after apply)
+2025-06-19T09:45:56.3917086Z       [32m+[0m[0m labels         = (known after apply)
+2025-06-19T09:45:56.3917448Z       [32m+[0m[0m name           = "subnet-ru-central1-d"
+2025-06-19T09:45:56.3917817Z       [32m+[0m[0m network_id     = (known after apply)
+2025-06-19T09:45:56.3918141Z       [32m+[0m[0m v4_cidr_blocks = [
+2025-06-19T09:45:56.3918442Z           [32m+[0m[0m "10.0.3.0/24",
+2025-06-19T09:45:56.3918691Z         ]
+2025-06-19T09:45:56.3918958Z       [32m+[0m[0m v6_cidr_blocks = (known after apply)
+2025-06-19T09:45:56.3919318Z       [32m+[0m[0m zone           = "ru-central1-d"
+2025-06-19T09:45:56.3919739Z     }
+2025-06-19T09:45:56.3919852Z 
+2025-06-19T09:45:56.3920028Z [1mPlan:[0m 20 to add, 0 to change, 0 to destroy.
+2025-06-19T09:45:56.3920328Z [0m
+2025-06-19T09:45:56.3920530Z Changes to Outputs:
+2025-06-19T09:45:56.3920922Z   [32m+[0m[0m app_alb_url                = "https://app.barmaq.ru"
+2025-06-19T09:45:56.3921364Z   [32m+[0m[0m app_control_plane_url      = (known after apply)
+2025-06-19T09:45:56.3921970Z   [32m+[0m[0m app_worker_urls            = [
+2025-06-19T09:45:56.3922305Z       [32m+[0m[0m (known after apply),
+2025-06-19T09:45:56.3922628Z       [32m+[0m[0m (known after apply),
+2025-06-19T09:45:56.3922892Z     ]
+2025-06-19T09:45:56.3923152Z   [32m+[0m[0m control_plane_external_ips = [
+2025-06-19T09:45:56.3923504Z       [32m+[0m[0m (known after apply),
+2025-06-19T09:45:56.3923759Z     ]
+2025-06-19T09:45:56.3924021Z   [32m+[0m[0m control_plane_internal_ips = [
+2025-06-19T09:45:56.3924343Z       [32m+[0m[0m (known after apply),
+2025-06-19T09:45:56.3924608Z     ]
+2025-06-19T09:45:56.3924952Z   [32m+[0m[0m grafana_domain_url         = "http://grafana.barmaq.ru"
+2025-06-19T09:45:56.3925387Z   [32m+[0m[0m grafana_info               = "Login: admin"
+2025-06-19T09:45:56.3925797Z   [32m+[0m[0m grafana_password           = (sensitive value)
+2025-06-19T09:45:56.3926210Z   [32m+[0m[0m grafana_url                = (known after apply)
+2025-06-19T09:45:56.3926620Z   [32m+[0m[0m kubeconfig                 = (sensitive value)
+2025-06-19T09:45:56.3927021Z   [32m+[0m[0m kubeconfig_external        = (sensitive value)
+2025-06-19T09:45:56.3927403Z   [32m+[0m[0m project_version            = "1.0.1"
+2025-06-19T09:45:56.3927764Z   [32m+[0m[0m worker_node_external_ips   = [
+2025-06-19T09:45:56.3928090Z       [32m+[0m[0m (known after apply),
+2025-06-19T09:45:56.3928401Z       [32m+[0m[0m (known after apply),
+2025-06-19T09:45:56.3928659Z     ]
+2025-06-19T09:45:56.3928906Z   [32m+[0m[0m worker_node_internal_ips   = [
+2025-06-19T09:45:56.3929368Z       [32m+[0m[0m (known after apply),
+2025-06-19T09:45:56.3929693Z       [32m+[0m[0m (known after apply),
+2025-06-19T09:45:56.3929955Z     ]
+2025-06-19T09:45:56.3930154Z [90m
+2025-06-19T09:45:56.3930522Z ─────────────────────────────────────────────────────────────────────────────[0m
+2025-06-19T09:45:56.3930774Z 
+2025-06-19T09:45:56.3930981Z Note: You didn't use the -out option to save this plan, so Terraform can't
+2025-06-19T09:45:56.3931607Z guarantee to take exactly these actions if you run "terraform apply" now.

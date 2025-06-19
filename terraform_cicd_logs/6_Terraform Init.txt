@@ -1,0 +1,49 @@
+﻿2025-06-19T09:45:48.7755991Z ##[group]Run terraform init \
+2025-06-19T09:45:48.7756411Z [36;1mterraform init \[0m
+2025-06-19T09:45:48.7756954Z [36;1m  --backend-config="access_key=***" \[0m
+2025-06-19T09:45:48.7757472Z [36;1m  --backend-config="secret_key=***"[0m
+2025-06-19T09:45:48.7810571Z shell: /usr/bin/bash -e {0}
+2025-06-19T09:45:48.7810914Z env:
+2025-06-19T09:45:48.7811179Z   TF_VERSION: 1.8.4
+2025-06-19T09:45:48.7811675Z   TF_ROOT: .
+2025-06-19T09:45:48.7812144Z   TERRAFORM_CLI_PATH: /home/runner/work/_temp/16ce911a-5882-4486-a106-c4b79713f2d9
+2025-06-19T09:45:48.7812891Z   SSH_PUBLIC_KEY: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK4DFQBsJA/Djtas+6WVht6qyVPLgia0JVBjEmNrnmdL barmaq for yacloud
+2025-06-19T09:45:48.7813491Z ##[endgroup]
+2025-06-19T09:45:48.8976236Z 
+2025-06-19T09:45:48.8977748Z [0m[1mInitializing the backend...[0m
+2025-06-19T09:45:49.5053878Z [0m[32m
+2025-06-19T09:45:49.5055076Z Successfully configured the backend "s3"! Terraform will automatically
+2025-06-19T09:45:49.5056155Z use this backend unless the backend configuration changes.[0m
+2025-06-19T09:45:49.9537666Z 
+2025-06-19T09:45:49.9540083Z [0m[1mInitializing provider plugins...[0m
+2025-06-19T09:45:49.9540590Z - Finding latest version of hashicorp/local...
+2025-06-19T09:45:50.0535966Z - Finding latest version of hashicorp/template...
+2025-06-19T09:45:50.0640922Z - Finding latest version of yandex-cloud/yandex...
+2025-06-19T09:45:50.0743938Z - Finding latest version of hashicorp/null...
+2025-06-19T09:45:50.1050524Z - Installing hashicorp/local v2.5.3...
+2025-06-19T09:45:50.2593218Z - Installed hashicorp/local v2.5.3 (signed by HashiCorp)
+2025-06-19T09:45:50.2897893Z - Installing hashicorp/template v2.2.0...
+2025-06-19T09:45:50.5024847Z - Installed hashicorp/template v2.2.0 (signed by HashiCorp)
+2025-06-19T09:45:50.7216822Z - Installing yandex-cloud/yandex v0.142.0...
+2025-06-19T09:45:51.3798067Z - Installed yandex-cloud/yandex v0.142.0 (self-signed, key ID [0m[1mE40F590B50BB8E40[0m[0m)
+2025-06-19T09:45:51.4005581Z - Installing hashicorp/null v3.2.4...
+2025-06-19T09:45:51.5575227Z - Installed hashicorp/null v3.2.4 (signed by HashiCorp)
+2025-06-19T09:45:51.5576531Z 
+2025-06-19T09:45:51.5577639Z Partner and community providers are signed by their developers.
+2025-06-19T09:45:51.5578720Z If you'd like to know more about provider signing, you can read about it here:
+2025-06-19T09:45:51.5580452Z https://www.terraform.io/docs/cli/plugins/signing.html
+2025-06-19T09:45:51.5584932Z 
+2025-06-19T09:45:51.5585728Z Terraform has created a lock file [1m.terraform.lock.hcl[0m to record the provider
+2025-06-19T09:45:51.5586353Z selections it made above. Include this file in your version control repository
+2025-06-19T09:45:51.5586928Z so that Terraform can guarantee to make the same selections by default when
+2025-06-19T09:45:51.5587409Z you run "terraform init" in the future.[0m
+2025-06-19T09:45:51.5587625Z 
+2025-06-19T09:45:51.5587892Z [0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+2025-06-19T09:45:51.5588274Z [0m[32m
+2025-06-19T09:45:51.5588635Z You may now begin working with Terraform. Try running "terraform plan" to see
+2025-06-19T09:45:51.5589135Z any changes that are required for your infrastructure. All Terraform commands
+2025-06-19T09:45:51.5589504Z should now work.
+2025-06-19T09:45:51.5589648Z 
+2025-06-19T09:45:51.5589852Z If you ever set or change modules or backend configuration for Terraform,
+2025-06-19T09:45:51.5590344Z rerun this command to reinitialize your working directory. If you forget, other
+2025-06-19T09:45:51.5590901Z commands will detect it and remind you to do so if necessary.[0m

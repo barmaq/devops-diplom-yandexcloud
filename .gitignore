@@ -21,3 +21,6 @@ override.tf.json
 
 # Auto variables
 *.auto.tfvars 
+
+# old files ( without cd-cd )
+**/terraform/*

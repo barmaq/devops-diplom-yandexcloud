@@ -1,0 +1,34 @@
+﻿2025-06-19T09:45:46.1829041Z Current runner version: '2.325.0'
+2025-06-19T09:45:46.1865851Z ##[group]Runner Image Provisioner
+2025-06-19T09:45:46.1867987Z Hosted Compute Agent
+2025-06-19T09:45:46.1869221Z Version: 20250617.347
+2025-06-19T09:45:46.1870560Z Commit: a94982a9c1baf5723aa59f6acd00bd3c220e8de7
+2025-06-19T09:45:46.1872376Z Build Date: 2025-06-17T13:43:39Z
+2025-06-19T09:45:46.1873767Z ##[endgroup]
+2025-06-19T09:45:46.1874968Z ##[group]Operating System
+2025-06-19T09:45:46.1876284Z Ubuntu
+2025-06-19T09:45:46.1877378Z 24.04.2
+2025-06-19T09:45:46.1878624Z LTS
+2025-06-19T09:45:46.1879656Z ##[endgroup]
+2025-06-19T09:45:46.1880826Z ##[group]Runner Image
+2025-06-19T09:45:46.1882158Z Image: ubuntu-24.04
+2025-06-19T09:45:46.1883524Z Version: 20250602.3.0
+2025-06-19T09:45:46.1885685Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250602.3/images/ubuntu/Ubuntu2404-Readme.md
+2025-06-19T09:45:46.1888593Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250602.3
+2025-06-19T09:45:46.1891028Z ##[endgroup]
+2025-06-19T09:45:46.1893570Z ##[group]GITHUB_TOKEN Permissions
+2025-06-19T09:45:46.1896803Z Contents: read
+2025-06-19T09:45:46.1897906Z Metadata: read
+2025-06-19T09:45:46.1899129Z Packages: read
+2025-06-19T09:45:46.1900124Z ##[endgroup]
+2025-06-19T09:45:46.1903744Z Secret source: Actions
+2025-06-19T09:45:46.1905400Z Prepare workflow directory
+2025-06-19T09:45:46.2683196Z Prepare all required actions
+2025-06-19T09:45:46.2740846Z Getting action download info
+2025-06-19T09:45:46.5413246Z ##[group]Download immutable action package 'actions/checkout@v4'
+2025-06-19T09:45:46.5414621Z Version: 4.2.2
+2025-06-19T09:45:46.5415715Z Digest: sha256:ccb2698953eaebd21c7bf6268a94f9c26518a7e38e27e0b83c1fe1ad049819b1
+2025-06-19T09:45:46.5417142Z Source commit SHA: 11bd71901bbe5b1630ceea73d27597364c9af683
+2025-06-19T09:45:46.5418022Z ##[endgroup]
+2025-06-19T09:45:46.6127125Z Download action repository 'hashicorp/setup-terraform@v3' (SHA:b9cd54a3c349d3f38e8881555d616ced269862dd)
+2025-06-19T09:45:46.8883898Z Complete job name: Terraform

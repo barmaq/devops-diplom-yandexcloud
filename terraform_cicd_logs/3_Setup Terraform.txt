@@ -1,0 +1,10 @@
+﻿2025-06-19T09:45:47.4965463Z ##[group]Run hashicorp/setup-terraform@v3
+2025-06-19T09:45:47.4966224Z with:
+2025-06-19T09:45:47.4966728Z   terraform_version: 1.8.4
+2025-06-19T09:45:47.4967399Z   cli_config_credentials_hostname: app.terraform.io
+2025-06-19T09:45:47.4968132Z   terraform_wrapper: true
+2025-06-19T09:45:47.4968668Z env:
+2025-06-19T09:45:47.4969156Z   TF_VERSION: 1.8.4
+2025-06-19T09:45:47.4969674Z   TF_ROOT: .
+2025-06-19T09:45:47.4970166Z ##[endgroup]
+2025-06-19T09:45:47.8963103Z [command]/usr/bin/unzip -o -q /home/runner/work/_temp/355a971a-90ae-4f4f-8c68-127f68d34eba

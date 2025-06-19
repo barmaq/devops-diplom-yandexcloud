@@ -1,0 +1,70 @@
+﻿2025-06-19T09:45:46.9513167Z ##[group]Run actions/checkout@v4
+2025-06-19T09:45:46.9514162Z with:
+2025-06-19T09:45:46.9514743Z   repository: barmaq/terraform-dapp
+2025-06-19T09:45:46.9515567Z   token: ***
+2025-06-19T09:45:46.9516047Z   ssh-strict: true
+2025-06-19T09:45:46.9516546Z   ssh-user: git
+2025-06-19T09:45:46.9517041Z   persist-credentials: true
+2025-06-19T09:45:46.9517595Z   clean: true
+2025-06-19T09:45:46.9518093Z   sparse-checkout-cone-mode: true
+2025-06-19T09:45:46.9518668Z   fetch-depth: 1
+2025-06-19T09:45:46.9519153Z   fetch-tags: false
+2025-06-19T09:45:46.9519640Z   show-progress: true
+2025-06-19T09:45:46.9520139Z   lfs: false
+2025-06-19T09:45:46.9520593Z   submodules: false
+2025-06-19T09:45:46.9521105Z   set-safe-directory: true
+2025-06-19T09:45:46.9522097Z env:
+2025-06-19T09:45:46.9522597Z   TF_VERSION: 1.8.4
+2025-06-19T09:45:46.9523100Z   TF_ROOT: .
+2025-06-19T09:45:46.9523555Z ##[endgroup]
+2025-06-19T09:45:47.0593417Z Syncing repository: barmaq/terraform-dapp
+2025-06-19T09:45:47.0595804Z ##[group]Getting Git version info
+2025-06-19T09:45:47.0596800Z Working directory is '/home/runner/work/terraform-dapp/terraform-dapp'
+2025-06-19T09:45:47.0597985Z [command]/usr/bin/git version
+2025-06-19T09:45:47.0624790Z git version 2.49.0
+2025-06-19T09:45:47.0652652Z ##[endgroup]
+2025-06-19T09:45:47.0667386Z Temporarily overriding HOME='/home/runner/work/_temp/fdfe6f31-0d59-4f78-a2e4-9ba3f11372a0' before making global git config changes
+2025-06-19T09:45:47.0668946Z Adding repository directory to the temporary git global config as a safe directory
+2025-06-19T09:45:47.0680967Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/terraform-dapp/terraform-dapp
+2025-06-19T09:45:47.0717648Z Deleting the contents of '/home/runner/work/terraform-dapp/terraform-dapp'
+2025-06-19T09:45:47.0721345Z ##[group]Initializing the repository
+2025-06-19T09:45:47.0725529Z [command]/usr/bin/git init /home/runner/work/terraform-dapp/terraform-dapp
+2025-06-19T09:45:47.0776842Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-06-19T09:45:47.0779036Z hint: is subject to change. To configure the initial branch name to use in all
+2025-06-19T09:45:47.0780976Z hint: of your new repositories, which will suppress this warning, call:
+2025-06-19T09:45:47.0782488Z hint:
+2025-06-19T09:45:47.0783205Z hint: 	git config --global init.defaultBranch <name>
+2025-06-19T09:45:47.0783898Z hint:
+2025-06-19T09:45:47.0784546Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-06-19T09:45:47.0785645Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-06-19T09:45:47.0786987Z hint:
+2025-06-19T09:45:47.0787746Z hint: 	git branch -m <name>
+2025-06-19T09:45:47.0789097Z Initialized empty Git repository in /home/runner/work/terraform-dapp/terraform-dapp/.git/
+2025-06-19T09:45:47.0792028Z [command]/usr/bin/git remote add origin https://github.com/barmaq/terraform-dapp
+2025-06-19T09:45:47.0822212Z ##[endgroup]
+2025-06-19T09:45:47.0823617Z ##[group]Disabling automatic garbage collection
+2025-06-19T09:45:47.0825224Z [command]/usr/bin/git config --local gc.auto 0
+2025-06-19T09:45:47.0853123Z ##[endgroup]
+2025-06-19T09:45:47.0854424Z ##[group]Setting up auth
+2025-06-19T09:45:47.0858894Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-06-19T09:45:47.0888773Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-06-19T09:45:47.1135020Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-06-19T09:45:47.1164822Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-06-19T09:45:47.1385094Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-06-19T09:45:47.1425041Z ##[endgroup]
+2025-06-19T09:45:47.1426574Z ##[group]Fetching the repository
+2025-06-19T09:45:47.1445062Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +e25a260709ed323dfc2b7c64f0ad6d0be187436c:refs/remotes/origin/main
+2025-06-19T09:45:47.4483780Z From https://github.com/barmaq/terraform-dapp
+2025-06-19T09:45:47.4484874Z  * [new ref]         e25a260709ed323dfc2b7c64f0ad6d0be187436c -> origin/main
+2025-06-19T09:45:47.4508886Z ##[endgroup]
+2025-06-19T09:45:47.4509748Z ##[group]Determining the checkout info
+2025-06-19T09:45:47.4511047Z ##[endgroup]
+2025-06-19T09:45:47.4516292Z [command]/usr/bin/git sparse-checkout disable
+2025-06-19T09:45:47.4555309Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-06-19T09:45:47.4582760Z ##[group]Checking out the ref
+2025-06-19T09:45:47.4586656Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-06-19T09:45:47.4715122Z Switched to a new branch 'main'
+2025-06-19T09:45:47.4716677Z branch 'main' set up to track 'origin/main'.
+2025-06-19T09:45:47.4719814Z ##[endgroup]
+2025-06-19T09:45:47.4740734Z [command]/usr/bin/git log -1 --format=%H
+2025-06-19T09:45:47.4762441Z e25a260709ed323dfc2b7c64f0ad6d0be187436c
