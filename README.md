@@ -347,7 +347,11 @@ terraform output -raw kubeconfig
 ### Результаты в Terraform
 
 **Outputs:**
-![Terraform Outputs](./images/terraform-apply.png)
+выполнен локально
+![Terraform Outputs](./images/terraform-apply.png)  
+выполнен в ci/cd  
+![Terraform Outputs](./images/terraform-cicd-04.png)  
+
 
 ### Ресурсы в Yandex Cloud
 
